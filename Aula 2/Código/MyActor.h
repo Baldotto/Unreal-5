@@ -7,28 +7,31 @@
 #include "MyActor.generated.h"
 
 UCLASS()
-class QUICKSTART_API AMyActor : public AActor
+class AULA1BC_API AMyActor : public AActor
 {
 	GENERATED_BODY()
-
-public:
+	
+public:	
+	// Sets default values for this actor's properties
 	AMyActor();
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Damage")
 	int32 TotalDamage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Damage") 
 	float DamageTimeInSeconds; 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Transient, Category = "Damage") 
 	float DamagePerSecond;
-	UFUNCTION(BlueprintCallable, Category = "Damage") 
-	void CalculateValues(); 
-
+	
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:
+public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+	UFUNCTION(BlueprintCallable, Category = "Damage") 
+	void CalculateValues(); 
+
 };
+
+
